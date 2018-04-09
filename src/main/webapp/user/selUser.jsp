@@ -110,14 +110,16 @@
 </form> 
 
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"><a href="javascript:;" onclick="datadel()"
-				class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>
+			<span class="l">
+				<a onclick="batchdel()" href="javascript:;" class="btn btn-danger radius">
+					<i class="Hui-iconfont">&#xe6e2;</i>
 					批量删除
-			</a> <a class="btn btn-primary radius" data-title="添加用户"
-				data-href="user/addUser.jsp" onclick="Hui_admin_tab(this)"
+				</a>
+				<a class="btn btn-primary radius" data-title="添加用户" data-href="user/addUser.jsp" onclick="Hui_admin_tab(this)"
 				href="javascript:;"> <i class="Hui-iconfont">&#xe600;</i> 添加用户
-			</a></span> <span class="r">共有数据：<strong>${pagebean.totalCount }</strong> 条
+			</a>
 			</span>
+			<span class="r">共有数据：<strong>${pagebean.totalCount }</strong> 条 </span>
 		</div>
 		<div class="mt-20">
 			<table
@@ -138,7 +140,7 @@
 				<tbody>
 				<c:forEach items="${pagebean.list }" var="lea" varStatus="vs">
 					<tr class="text-c">
-						<td><input type="checkbox" value="${lea.username }" name="userid"></td>
+						<td><input type="checkbox" value="${lea.username }" name="userid" ></td>
 						<td>${vs.count }</td>
 						<td>${lea.username }</td>
 						<td>${lea.identity }</td>
@@ -147,13 +149,16 @@
 						<td>${lea.position }</td>
 						<td>${lea.role.rolename }</td>
 						<td class="f-14 td-manage">
-						 <a style="text-decoration: none" class="ml-5"
-							onClick="article_edit('用户编辑','user/updateUser.jsp?username=${lea.username}','${vs.count }')"
-							href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
+							<a style="text-decoration: none" class="ml-5"
+							onClick="article_edit('用户编辑','/user/updateUser.jsp?username=${lea.username}')"
+							href="javascript:;" title="编辑">
+								<i class="Hui-iconfont">&#xe6df;</i>
+							</a>
 							<a style="text-decoration: none" class="ml-5"
 							onClick="article_del(this,'${lea.username}')" href="javascript:;"
-							title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
-
+							title="删除"><i class="Hui-iconfont">&#xe6e2;</i>
+							</a>
+						</td>
 					</tr>
 
 				</c:forEach>
@@ -223,6 +228,7 @@
 		}
 		/*资讯-编辑*/
 		function article_edit(title, url, id, w, h) {
+            alert(url);
 			var index = layer.open({
 				type : 2,
 				title : title,
@@ -240,7 +246,6 @@
 					dataType : 'json',
 					data:{"username":id},
 					success : function(data) {
-						alert(data);
 						$(obj).parents("tr").remove();
 						layer.msg('已删除!', {
 							icon : 1,
@@ -254,7 +259,39 @@
 			});
 		}
 
-	
+		function a() {
+		    $("input:checkbox[name='userid']:checked").each(function () {
+                alert($(this).val());
+            });
+        }
+
+        function b() {
+		    alert($(this).is(':checked'));
+        }
+		function batchdel(obj, id) {
+            layer.confirm('确认要删除吗？', function(index) {
+                $.ajax({
+                    type : 'POST',
+                    url : 'delUser',
+                    dataType : 'json',
+                    data:{"username":id},
+                    success : function(data) {
+                        alert(data);
+                        $(obj).parents("tr").remove();
+                        layer.msg('已删除!', {
+                            icon : 1,
+                            time : 1000
+                        });
+                    },
+                    error : function(data) {
+                        console.log(data.msg);
+                    },
+                });
+            });
+        }
+
 	</script>
+
+
 </body>
 </html>

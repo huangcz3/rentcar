@@ -95,12 +95,11 @@ public class CarController {
      * @return
      */
     @RequestMapping("findCar")
-
     public String findCar(String carnumber, Model mo) {
 
         Car car = carService.findCarByident(carnumber);
-        car.setCarimg("files\\" + car.getCarimg());
-        System.out.println(car.getCarimg());
+//        car.setCarimg("files\\" + car.getCarimg());
+//        System.out.println(car.getCarimg());
         mo.addAttribute("cari", car);
         return "/carManager/updateCar";
     }

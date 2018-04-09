@@ -13,7 +13,7 @@ public interface LoginLogsMapper {
 
     //添加登录信息
     @Insert("insert into loginlogs values"
-            + " (default,#{loginname},#{loginip},#{logintime})")
+            + " (default,#{loginname},#{loginip},CURRENT_TIMESTAMP)")
     int add(LoginLogs loginLogs);
 
 

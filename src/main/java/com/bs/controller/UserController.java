@@ -167,6 +167,27 @@ public class UserController {
 
     }
 
+
+    /**
+     * 删除用户
+     *
+     * @param username
+     * @return
+     */
+    @RequestMapping("batchDelUser")
+    @SystemLog(description = "用户管理-->批量删除用户")
+    @ResponseBody
+    public int batchDelUser(String[] username) {
+
+        int result = 0 ;
+
+        for (String str:username){
+            result = userService.delUser(str);
+        }
+        return result;
+
+    }
+
     /**
      * 获取ip
      *

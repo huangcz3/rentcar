@@ -1,5 +1,6 @@
 package com.bs.test;
 
+import java.sql.Date;
 import java.util.HashMap;
 
 /**
@@ -14,6 +15,8 @@ public class StringTest {
         System.out.println(str.charAt(0));
         System.out.println(str.indexOf("l"));
 
+
+        System.out.println(new Date(System.currentTimeMillis()));
     }
 
 }

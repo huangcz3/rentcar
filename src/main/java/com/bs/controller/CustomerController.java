@@ -1,8 +1,11 @@
 package com.bs.controller;
 
+import com.bs.annotation.SystemLog;
 import com.bs.pojo.Customer;
 import com.bs.pojo.PageBean;
 import com.bs.service.CustomerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +17,8 @@ import javax.annotation.Resource;
 @Controller
 public class CustomerController {
 
+    private Logger logger = LoggerFactory.getLogger(CustomerController.class);
+
     @Resource
     private CustomerService customerService;
 
@@ -24,12 +29,13 @@ public class CustomerController {
      * @return
      */
     @RequestMapping("addCust")
-    @ResponseBody
+    @SystemLog(description = "客户管理-->添加顾客")
+//    @ResponseBody
     public String addcustomer(Customer customer) {
         int result = customerService.addCustomer(customer);
-        System.out.println(result);
-        return "result";
-
+        logger.info(String.valueOf(result) + ",添加用户{}成功", customer);
+//        return "result";
+        return "redirect:menu";
     }
 
     /**
@@ -44,7 +50,7 @@ public class CustomerController {
     @RequestMapping("selCust")
     public String selCust(Customer customer, @RequestParam(defaultValue = "1") int pageNumber,
                           @RequestParam(defaultValue = "5") int pageSize, Model m) {
-        System.out.println(customer);
+//        System.out.println(customer);
         PageBean<Customer> pi = new PageBean<>();
         pi.setIndex(pageNumber); // 设置起始页
         pi.setSize(pageSize);// 设置每页行数
@@ -70,7 +76,7 @@ public class CustomerController {
     /**
      * 修改客户信息
      *
-     * @param use
+     * @param
      * @return
      */
     @RequestMapping("updateCust")

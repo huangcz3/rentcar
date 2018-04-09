@@ -157,15 +157,10 @@ $(function(){
 			$(form).ajaxSubmit({
 				type: 'post',
 				url: "addCust" ,
-				dataType:"json",
+//				dataType:"json",
 				success: function(data){
-					if(data>0){
-						
-					layer.msg('添加成功!',{icon:1,time:1000});
-					}else{
-						layer.msg('error!',{icon:1,time:1000});
-					}
-						
+                    layer.msg('添加成功!',{icon:1,time:1000});
+//                    $("input[type=reset]").trigger("click");//清空表单数据
 				},
                 error: function(XmlHttpRequest, textStatus, errorThrown){
 					layer.msg('error!',{icon:1,time:1000});

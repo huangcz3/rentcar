@@ -125,7 +125,9 @@
 							href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 							<a style="text-decoration: none" class="ml-5"
 							onClick="article_del(this,'${lea.identity}')" href="javascript:;"
-							title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a></td>
+							title="删除"><i class="Hui-iconfont">&#xe6e2;</i>
+							</a>
+						</td>
 
 					</tr>
 
@@ -173,15 +175,15 @@
 			layer.full(index);
 		}
 		/*资讯-编辑*/
-		function article_edit(title, url, id, w, h) {
-			var index = layer.open({
-				type : 2,
-				title : title,
-				content : url,
-				
-			});
-			layer.full(index);
-		}
+        function article_edit(title, url, id, w, h) {
+            var index = layer.open({
+                type : 2,
+                title : title,
+                content : url,
+
+            });
+            layer.full(index);
+        }
 		/*资讯-删除*/
 		function article_del(obj, id) {
 			layer.confirm('确认要删除吗？', function(index) {
@@ -191,7 +193,7 @@
 					dataType : 'json',
 					data:{"identity":id},
 					success : function(data) {
-						alert(data);
+//						alert(data);
 						$(obj).parents("tr").remove();
 						layer.msg('已删除!', {
 							icon : 1,
