@@ -52,9 +52,9 @@
 		<div class="text-c">
 	
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色id：<input
-				type="text" name="roleid" id="" placeholder=" id"  value="0"
+				type="text" name="roleid" id="" placeholder=" 请输入角色id"  value=""
 				style="width: 200px" class="input-text">角色名称：<input
-				type="text" name="rolename" id="" placeholder=" 角色"  value=""
+				type="text" name="rolename" id="" placeholder=" 请输入角色名称"  value=""
 				style="width: 200px" class="input-text">
 		
 			&nbsp;&nbsp;&nbsp;&nbsp;

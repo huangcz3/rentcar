@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"
-	contentType="text/html; charset=UTF-8"%>
+<%@ page language="java" pageEncoding="UTF-8"
+		 contentType="text/html; charset=UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -9,7 +9,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<base href="<%=basePath%>"></base>
+<base href="<%=basePath%>"/>
 
 <meta charset="utf-8">
 <meta name="renderer" content="webkit|ie-comp|ie-stand">
@@ -18,25 +18,25 @@
 	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="../lib/html5shiv.js"></script>
+<script type="text/javascript" src="../lib/respond.min.js"></script>
 <![endif]-->
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui/css/H-ui.min.css" />
+	href="../static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui.admin/css/H-ui.admin.css" />
+	href="../static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css"
-	href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+	href="../lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+	href="../static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui.admin/css/style.css" />
+	href="../static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="../lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>查询车辆</title>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -73,12 +73,12 @@
 				style="width: 200px" class="input-text">
 
 		</div>
-		<div class="text-c">
-			&nbsp;&nbsp;状态： <span class="select-box inline"> <select
-				name="isrenting" class="select" id="rolesel">
-				<option value="0" selected="selected">未出租</option>
-				<option value="1">已出租</option>
-			</select>
+		<div class="text-c"> &nbsp;&nbsp;状态：
+			<span class="select-box inline">
+				<select name="isrenting" class="select" id="rolesel">
+					<option value="0">未出租</option>
+					<option value="1">已出租</option>
+				</select>
 			</span> 
 			&nbsp;&nbsp;&nbsp;&nbsp;
 			<!-- <input type="submit"  class="btn btn-success" value="查询"/>  -->
@@ -90,16 +90,19 @@
 </form> 
 
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"><a href="javascript:;" onclick="datadel()"
-				class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>
-					批量删除
-			</a> <a class="btn btn-primary radius" data-title="添加车辆"
+			<span class="l">
+				<%--<a href="javascript:;" onclick="datadel()"--%>
+				<%--class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>--%>
+					<%--批量删除--%>
+				<%--</a> --%>
+				<a class="btn btn-primary radius" data-title="添加车辆"
 				data-href="carManager/addCar.jsp" onclick="Hui_admin_tab(this)"
 				href="javascript:;"> <i class="Hui-iconfont">&#xe600;</i> 添加车辆</a>
-				<a class="btn btn-primary radius" data-title="统计" 
-				href="/rentcar/carManager/charts.jsp"> <i class="Hui-iconfont">&#xe600;</i> 统计
-			</a></span> <span class="r">共有数据：<strong>${pageCar.totalCount }</strong> 条
+				<%--<a class="btn btn-primary radius" data-title="统计"--%>
+				   <%--href="carManager/charts.jsp"> <i class="Hui-iconfont">&#xe600;</i> 统计--%>
+			<%--</a>--%>
 			</span>
+			<%--<span class="r">共有数据：<strong>${pageCar.totalCount }</strong> 条</span>--%>
 		</div>
 		<div class="mt-20">
 			<table
@@ -108,7 +111,7 @@
 					<tr class="text-c">
 						<th width="25"><input type="checkbox" name="" value=""></th>
 						<th width="80">序号</th>
-						<th >车牌号</th>
+						<th width="80">车牌号</th>
 						<th width="80">类型</th>
 						<th width="30">颜色</th>
 						<th width="75">价值</th>
@@ -128,7 +131,7 @@
 						<td>${lea.rentprice }</td>
 						<td class="f-14 td-manage">
 						 <a style="text-decoration: none" class="ml-5"
-							onClick="article_edit('用户编辑','findCar?carnumber=${lea.carnumber}','${vs.count }')"
+							onClick="article_edit('汽车编辑','findCar?carnumber=${lea.carnumber}','${vs.count }')"
 							href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 							<a style="text-decoration: none" class="ml-5"
 							onClick="article_del(this,'${lea.carnumber}')" href="javascript:;"
@@ -145,17 +148,17 @@
 	</div>
 	<!--_footer 作为公共模版分离出去-->
 
-	<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-	<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-	<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script>
+	<script type="text/javascript" src="../lib/layer/2.4/layer.js"></script>
+	<script type="text/javascript" src="../static/h-ui/js/H-ui.min.js"></script>
+	<script type="text/javascript" src="../static/h-ui.admin/js/H-ui.admin.js"></script>
 	<!--/_footer 作为公共模版分离出去-->
 
 	<!--请在下方写此页面业务相关的脚本-->
 	<script type="text/javascript"
-		src="lib/My97DatePicker/4.8/WdatePicker.js"></script>
+		src="../lib/My97DatePicker/4.8/WdatePicker.js"></script>
 	<script type="text/javascript"
-		src="lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="lib/laypage/1.2/laypage.js"></script>
+		src="../lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="../lib/laypage/1.2/laypage.js"></script>
 	<script type="text/javascript">
 		$('.table-sort').dataTable({
 			"aaSorting" : [ [ 1, "desc" ] ],//默认第几个排序
@@ -179,16 +182,16 @@
 			});
 			layer.full(index);
 		}
-		/*资讯-编辑*/
-		function article_edit(title, url, id, w, h) {
-			var index = layer.open({
-				type : 2,
-				title : title,
-				content : url,
-				
-			});
-			layer.full(index);
-		}
+        /*资讯-编辑*/
+        function article_edit(title, url, id, w, h) {
+            var index = layer.open({
+                type : 2,
+                title : title,
+                content : url,
+
+            });
+            layer.full(index);
+        }
 		/*资讯-删除*/
 		function article_del(obj, id) {
 			layer.confirm('确认要删除吗？', function(index) {

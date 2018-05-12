@@ -78,10 +78,10 @@
 	</div>
 
 	</form>
-<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="r">共有数据：<strong>${pageLogs.totalCount }</strong> 条
-			</span>
-		</div>
+<%--<div class="cl pd-5 bg-1 bk-gray mt-20">--%>
+			<%--&lt;%&ndash;<span class="r">共有数据：<strong>${pageLogs.totalCount }</strong> 条&ndash;%&gt;--%>
+			<%--</span>--%>
+		<%--</div>--%>
 	<div class="mt-20">
 		<table
 			class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
@@ -92,7 +92,6 @@
 					<th width="5">用户名</th>
 					<th width="120">日志内容</th>
 					<th width="50">时间</th>
-
 					<th width="50">编辑</th>
 				</tr>
 			</thead>

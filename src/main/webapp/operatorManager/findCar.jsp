@@ -18,25 +18,25 @@
 	content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 <!--[if lt IE 9]>
-<script type="text/javascript" src="lib/html5shiv.js"></script>
-<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="../lib/html5shiv.js"></script>
+<script type="text/javascript" src="../lib/respond.min.js"></script>
 <![endif]-->
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui/css/H-ui.min.css" />
+	href="../static/h-ui/css/H-ui.min.css" />
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui.admin/css/H-ui.admin.css" />
+	href="../static/h-ui.admin/css/H-ui.admin.css" />
 <link rel="stylesheet" type="text/css"
-	href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+	href="../lib/Hui-iconfont/1.0.8/iconfont.css" />
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+	href="../static/h-ui.admin/skin/default/skin.css" id="skin" />
 <link rel="stylesheet" type="text/css"
-	href="static/h-ui.admin/css/style.css" />
+	href="../static/h-ui.admin/css/style.css" />
 <!--[if IE 6]>
-<script type="text/javascript" src="lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script type="text/javascript" src="../lib/DD_belatedPNG_0.0.8a-min.js" ></script>
 <script>DD_belatedPNG.fix('*');</script>
 <![endif]-->
 <title>查询车辆</title>
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -58,14 +58,16 @@
 				class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
 				<thead>
 					<tr class="text-c">
-						<th width="25"><input type="checkbox" name="" value=""></th>
+						<th width="25">
+							<input type="checkbox" name="" value="">
+						</th>
 						<th width="80">序号</th>
-						<th >车牌号</th>
+						<th width="80">车牌号</th>
 						<th width="80">类型</th>
 						<th width="30">颜色</th>
 						<th width="75">价值</th>
 						<th width="75">租金</th>
-						<th width="120">操作</th>
+						<th width="80">操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -80,7 +82,7 @@
 						<td>${lea.rentprice }</td>
 						<td class="f-14 td-manage">
 						 <a style="text-decoration: none" class="ml-5"
-							onClick="article_edit('用户编辑','preRentCar?carnumber=${lea.carnumber}&identity=${ident}','${vs.count }')"
+							onClick="article_edit('汽车出租','preRentCar?carnumber=${lea.carnumber}&identity=${ident}','${vs.count }')"
 							href="javascript:;" title="编辑">租用<i class="Hui-iconfont">&#xe6df;</i></a>
 							</td>
 

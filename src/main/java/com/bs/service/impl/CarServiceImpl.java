@@ -18,13 +18,11 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public int addCar(Car car) {
-        // TODO Auto-generated method stub
         return carMapper.add(car);
     }
 
     @Override
     public PageBean<Car> findCar(Car car, PageBean<Car> pi) {
-        // TODO Auto-generated method stub
         int totalCount = carMapper.findCount();
         pi.setTotalCount(totalCount); // 设置总行数
         int start = pi.getStartRow();//起始行
@@ -42,13 +40,11 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public int updateCar(Car cust) {
-        // TODO Auto-generated method stub
         return carMapper.updateCar(cust);
     }
 
     @Override
     public int delCar(String identity) {
-        // TODO Auto-generated method stub
         return carMapper.delByIdent(identity);
     }
 

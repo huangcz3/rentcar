@@ -59,10 +59,10 @@
 						<th width="120">出租单编号</th>
 						<th width="80">起租日期</th>
 						<th width="80">应归还日期</th>
-						<th width="50">客户号</th><!--没有  -->
+						<th width="120">客户身份证号</th><!--没有  -->
 						<th width="80">车号</th><!--没有  -->
-						<th width="30">出租单状态</th>
-						<th width="120">服务人员编号</th>
+						<th width="80">出租单状态</th>
+						<th width="80">服务人员编号</th>
 						<th width="75">编辑</th>
 					
 						

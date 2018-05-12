@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author User
@@ -52,6 +53,11 @@ public class UserServcieImpl implements UserService {
     @Override
     public int delUser(String username) {
         return userMapper.delUser(username);
+    }
+
+    @Override
+    public List<Map<String, String>> getAllUserList(Map paramMap) {
+        return userMapper.getAllUserList(paramMap);
     }
 
 

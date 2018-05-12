@@ -105,15 +105,18 @@
 		</form>
 
 		<div class="cl pd-5 bg-1 bk-gray mt-20">
-			<span class="l"><a href="javascript:;" onclick="datadel()"
-				class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>
-					批量删除
-			</a> <a class="btn btn-primary radius" data-title="添加车辆"
-				data-href="carManager/addCar.jsp" onclick="Hui_admin_tab(this)"
-				href="javascript:;"> <i class="Hui-iconfont">&#xe600;</i> 添加出租单
-			</a></span> <span class="r">共有数据：<strong>${pageCar.totalCount }</strong>
-				条
-			</span>
+			<span class="l">
+				<%--<a href="javascript:;" onclick="datadel()"--%>
+				<%--class="btn btn-danger radius"> <i class="Hui-iconfont">&#xe6e2;</i>--%>
+					<%--批量删除--%>
+				<%--</a> --%>
+				<%--<a class="btn btn-primary radius" data-title="添加车辆"--%>
+				<%--data-href="carManager/addCar.jsp" onclick="Hui_admin_tab(this)"--%>
+				<%--href="javascript:;"> <i class="Hui-iconfont">&#xe600;</i> 添加出租单--%>
+			<%--</a>--%>
+			<%--</span> <span class="r">共有数据：<strong>${pageCar.totalCount }</strong>--%>
+				<%--条--%>
+			<%--</span>--%>
 		</div>
 		<div class="mt-20">
 			<table
@@ -124,12 +127,12 @@
 						<th width="80">序号</th>
 						<th width="120">出租单编号</th>
 						<th width="80">预付金</th>
-						<th width="50">应付金</th>
+						<th width="60">应付金</th>
 						<th width="100">起租日期</th>
 						<th width="100">应归还日期</th>
 						<th width="100">归还日期</th>
-						<th width="50">客户姓名</th>
-						<th width="50">车号</th>
+						<th width="60">客户姓名</th>
+						<th width="80">车号</th>
 						<th width="75">服务人员</th>
 						<th width="75">编辑</th>
 					</tr>
@@ -151,7 +154,7 @@
 							<td>${lea.username }</td>
 							<td class="f-14 td-manage"><a style="text-decoration: none"
 								class="ml-5"
-								onClick="article_edit('用户编辑','findRenttable?rentid=${lea.rentid}','${vs.count }')"
+								onClick="article_edit('编辑出租单','findRenttable?rentid=${lea.rentid}','${vs.count }')"
 								href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a>
 							</td>
 

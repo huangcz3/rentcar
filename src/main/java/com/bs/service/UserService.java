@@ -3,6 +3,9 @@ package com.bs.service;
 import com.bs.pojo.PageBean;
 import com.bs.pojo.User;
 
+import java.util.List;
+import java.util.Map;
+
 public interface UserService {
     /**
      * 登录 获取用户
@@ -54,4 +57,10 @@ public interface UserService {
      */
     public int delUser(String username);
 
+    /**
+     * 数据下载
+     * @param paramMap
+     * @return
+     */
+    List<Map<String,String>> getAllUserList(Map paramMap);
 }

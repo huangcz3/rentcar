@@ -54,20 +54,20 @@
 
 
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
-<script type="text/javascript" src="lib/layer/2.4/layer.js"></script>
-<script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script> 
-<script type="text/javascript" src="static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer /作为公共模版分离出去-->
+<script type="text/javascript" src="../lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="../lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="../static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="../static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer /作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/jquery.validate.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/validate-methods.js"></script> 
-<script type="text/javascript" src="lib/jquery.validation/1.14.0/messages_zh.js"></script> 
-<script type="text/javascript" src="lib/webuploader/0.1.5/webuploader.min.js"></script> 
+<script type="text/javascript" src="../lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="../lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="../lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="../lib/webuploader/0.1.5/webuploader.min.js"></script>
 <script type="text/javascript">
 $(function() {
-	$('#subbt').attr('disabled',"true");	/* 添加disabled属性   */ 
-	 $("#subbt").hide();
+	//$('#subbt').attr('disabled',"true");	/* 添加disabled属性   */
+//	 $("#subbt").hide();
 		$("#form-article-add").validate({
 			rules:{
 				carnumber:{
@@ -94,7 +94,7 @@ function sel() {
 			function(data) {
 				if(data){
 					$("#subbt").show();
-					$("#showinfo").hide();
+//					$("#showinfo").hide();
 					$('#subbt').removeAttr("disabled");// 移除disabled属性 
 				}else{
 					$("#showinfo").show();

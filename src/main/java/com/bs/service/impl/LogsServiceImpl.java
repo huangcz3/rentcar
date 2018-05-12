@@ -32,7 +32,7 @@ public class LogsServiceImpl implements LogsService {
 
         pi.setList(list);
 
-        return null;
+        return pi;
     }
 
     @Override

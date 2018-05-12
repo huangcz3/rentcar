@@ -39,7 +39,7 @@
             <include refid="findLogs"/>
 
         </where>
-         limit #{index} ,#{size}
+        <!-- limit #{index} ,#{size} -->
     </select>
 
 

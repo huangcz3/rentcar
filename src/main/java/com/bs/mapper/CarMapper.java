@@ -17,7 +17,7 @@ public interface CarMapper {
      *
      * @return
      */
-    @Select("select count(*) from cars ")
+    @Select("select count(*) from cars where isrenting = 0")
     int findCount();
 
     /**

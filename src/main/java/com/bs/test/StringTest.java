@@ -17,6 +17,25 @@ public class StringTest {
 
 
         System.out.println(new Date(System.currentTimeMillis()));
+
+
+        for (int i=0;i < 5 ;i++){
+            System.out.println("137001"+String.format("%05d",i));
+        }
+
+        int i = 0;
+        for (;;){
+            System.out.println(i++);
+//            if (i == 5) {
+//                break;
+//            }
+//            continue;
+        }
+
+
     }
+
+
+
 
 }

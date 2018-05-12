@@ -6,6 +6,7 @@ import com.bs.pojo.PageBean;
 import com.bs.pojo.User;
 import com.bs.service.LoginLogsService;
 import com.bs.service.UserService;
+import com.bs.util.ExcelUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -16,8 +17,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.OutputStream;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author User
@@ -169,7 +176,7 @@ public class UserController {
 
 
     /**
-     * 删除用户
+     * 批量删除用户
      *
      * @param username
      * @return
@@ -187,6 +194,49 @@ public class UserController {
         return result;
 
     }
+
+    @RequestMapping("/getUserDownload")
+    public String getUserDownload(HttpServletRequest request,HttpServletResponse response) throws Exception {
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
+
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String nowTime = df.format(new java.util.Date());
+        String name = "用户_";
+        String sheetName = name+nowTime;
+
+
+        Map paramMap = new HashMap();
+
+        List<Map<String,String>> list = userService.getAllUserList(paramMap);
+
+        String [][] header = {{"活动ID","活动名称","地市","活动状态","创建人","创建时间","开始时间","结束时间","目标客户数","执行渠道"}};
+        String columns = "activity_id,activity_name,city_name,activity_state,creator_name,create_time,start_time,end_time,final_amount,channel_name";
+        exportComplexExcel(request,response,sheetName,header,columns,list);
+
+        return null;
+    }
+
+    public static <T> void exportComplexExcel(HttpServletRequest request,HttpServletResponse response, String sheetName, String[][] header,String columns, List<T> data) throws Exception {
+        response.reset();
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/msexecl");
+        response.setHeader("Content-Disposition", "attachment; filename="
+                + new String(sheetName.getBytes("gb2312"), "ISO8859-1") + ".xls");
+        OutputStream os = response.getOutputStream();
+        ExcelUtil excelImport = new ExcelUtil();
+        excelImport.createBook(os);
+        if (data != null && data.size() > 0 && !(data.get(0) instanceof Map))
+            excelImport.writerSheetWithObject(sheetName, data,
+                    columns.split(","), header);
+        else
+            excelImport.writerSheet(sheetName,
+                    (List<Map<String, String>>) data, columns.toUpperCase()
+                            .split(","), header);
+        excelImport.closeBook();
+        os.close();
+    }
+
 
     /**
      * 获取ip
@@ -211,6 +261,9 @@ public class UserController {
         }
         return ip;
     }
+
+
+
 
 
 }

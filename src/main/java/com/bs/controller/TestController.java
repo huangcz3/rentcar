@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -19,10 +20,10 @@ public class TestController {
 
     @ResponseBody
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String test() {
+    public String test(@RequestParam(value = "a",required = false,defaultValue = "aaaa") String a) {
 
         logger.info("34567890");
-        return "ssssssss";
+        return a+"ssssssss";
     }
 
 }

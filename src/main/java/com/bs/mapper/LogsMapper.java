@@ -9,7 +9,7 @@ import java.util.List;
 public interface LogsMapper {
     //添加日志
     @Insert("insert into logs values"
-            + " (default,#{username},#{action},#{actiontime},#{flag})")
+            + " (default,#{username},#{action},CURRENT_TIMESTAMP,#{flag})")
     int add(Logs logs);
 
     /**

@@ -4,6 +4,7 @@ import com.bs.annotation.SystemLog;
 import com.bs.pojo.Car;
 import com.bs.pojo.PageBean;
 import com.bs.service.CarService;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -27,7 +29,7 @@ public class CarController {
     private CarService carService;
 
     /**
-     * 添加顾客
+     * 添加车辆
      *
      * @param car
      * @return
@@ -38,23 +40,25 @@ public class CarController {
     public String addcar(Car car, MultipartFile image, HttpServletRequest req) throws IOException {
         System.out.println(car);
         System.out.println(image);
+
         //获取后缀名
-
-        String type = image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf("."));
-
+//        String type = image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf("."));
         int result = 0;
-        if (type.equals(".png") || type.equals(".jpg")) {
-            //使用common io 包工具
-            String img = UUID.randomUUID().toString() + type;//重命名文件
-            car.setCarimg(img);
-
-//			String url=req.getServletContext().getRealPath("/files/"+img);
-
+//        if (type.equals(".png") || type.equals(".jpg")) {
+//            //使用common io 包工具
+////            String img = UUID.randomUUID().toString() + type;//重命名文件
+//            String img = car.getCarnumber() + type;
+//
+//			String url=req.getSession().getServletContext().getRealPath("/files/"+img);
+//
 //			System.out.println(url);
 //			FileUtils.copyInputStreamToFile(image.getInputStream(), new File(url));
-            result = carService.addCar(car);
-
-        }
+//
+//            car.setCarimg(img);
+//            result = carService.addCar(car);
+//
+//        }
+        result = carService.addCar(car);
         if (result == 1) {
             return "okok";
 

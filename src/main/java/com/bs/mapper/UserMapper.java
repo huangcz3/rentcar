@@ -4,6 +4,7 @@ import com.bs.pojo.User;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author User
@@ -66,4 +67,5 @@ public interface UserMapper {
     int delUser(String username);
 
 
+    List<Map<String,String>> getAllUserList(Map paramMap);
 }

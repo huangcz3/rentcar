@@ -2,14 +2,23 @@ package com.bs.pojo;
 
 public class Renttable {
     private String rentid;//出租单编号
+
     private double imprest;//预付金
+
     private double shouldpaypric;//应付金
+
     private double price;//实际交付价格
+
     private String begindate;//起租日期
+
     private String shouldreturndate;//应归还日期
+
     private String returndate;//归还日期
+
     private int rentflage;//出租单状况
+
     private String custid;//客户号
+
     private String carid;//车号
     private String username;//服务人员编号
     private String custname;
